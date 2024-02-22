@@ -34,7 +34,7 @@ jobs:
       - name: Unit test
         run: mvn -Dtest=HelloWorldApplicationUnitTests test
 
-  codacy-analysis-cli:
+  code-analysis:
     name: Codacy Analysis CLI
     runs-on: ubuntu-latest
     steps:
