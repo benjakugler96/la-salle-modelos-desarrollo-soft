@@ -43,11 +43,11 @@ jobs:
           with:
             java-version: '17'
             distribution: 'temurin'
-        - name: Bump minor version if not specified in commit message
+        - name: Bump major version unless other is specified in commit message
           id: bump
           uses: nnichols/maven-version-bump-action@v5
           with:
-            type: minor
+            type: major
         - name: Print Version
           run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
         - name: Login to Docker Hub
