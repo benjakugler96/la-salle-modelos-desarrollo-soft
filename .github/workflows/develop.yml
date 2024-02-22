@@ -3,7 +3,7 @@ name: Java CI with Maven
 on:
   push:
     branches:
-      - main
+      - develop
 permissions:
   contents: write
 
@@ -40,6 +40,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@main
+
       - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@master
 
@@ -67,11 +68,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Bump major version
+      - name: Bump minor version
         id: bump
         uses: nnichols/maven-version-bump-action@v5
         with:
-          type: major
+          type: minor
       - name: Print Version
         run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
       - name: Login to Docker Hub
